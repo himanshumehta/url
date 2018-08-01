@@ -3,9 +3,9 @@ class CreateUrls < ActiveRecord::Migration[5.2]
     create_table :urls do |t|
       t.string :url
       t.string :slug
-      t.integer :clicks
+      t.integer :clicks,  :default => 0
       t.string :sanitize_url
-      t.integer :http_status
+      t.integer :http_status, :default => 301
 
       t.timestamps
     end
