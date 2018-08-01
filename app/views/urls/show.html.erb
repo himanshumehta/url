@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @url.url %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @url.slug %>
+</p>
+
+<p>
+  <strong>Clicks:</strong>
+  <%= @url.clicks %>
+</p>
+
+<p>
+  <strong>Sanitize url:</strong>
+  <%= @url.sanitize_url %>
+</p>
+
+<p>
+  <strong>Http status:</strong>
+  <%= @url.http_status %>
+</p>
+
+<%= link_to 'Edit', edit_url_path(@url) %> |
+<%= link_to 'Back', urls_path %>
