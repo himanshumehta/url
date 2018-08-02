@@ -44,14 +44,16 @@ RSpec.describe Url, type: :model do
     expect(url.slug).to match(/\A[a-z\d]{6}\z/i)
   end
 
-#   describe "allow only unique slug." do
-# 	before do
-# 	  url = Url.create(:url => @url)
-# 	  same_slug_url = url.dup
-# 	  same_slug_url.save
-# 	end
-# 	expect(same_slug_url).to_not be_valid    
-#   end  
+  describe "allow only unique slug." do
+	before do
+	  url = Url.create(:url => @url)
+	  @same_slug_url = url.dup
+	  @same_slug_url.save
+	end
+	it "allow only unique slug" do
+		expect(@same_slug_url).to_not be_valid    
+  	end  
+  end
 
 #   it "update http_status for given url" do 
 #   	# write code
