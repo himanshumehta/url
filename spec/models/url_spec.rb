@@ -16,26 +16,27 @@ RSpec.describe Url, type: :model do
 # # all are same so first time save 
 # # 'http://uttarika.com' as sanitized for any of them and check for uniqueness.
 
-#   describe "method" do
-#     before :each do
-#       url = Url.create(:url => @url)
-#       url.sanitize
-#       url.save
-#     end
-#   	it "return true if given url already exist" do
-#       alternative_url = "www.#{@url}"
-# 	  url = Url.new(:url => alternative_url)
-# 	  url.sanitize
-# 	  expect(url.url_exist?).to eq(true)
-#   	end
+  describe "method" do
+    before :each do
+      url = Url.create(:url => @url)
+      url.sanitize
+      url.save
+    end
+    
+  	it "return true if given url already exist" do
+      alternative_url = "www.#{@url}"
+	  url = Url.new(:url => alternative_url)
+	  url.sanitize
+	  expect(url.url_exist).to eq(true)
+  	end
 
-#   	it "return false if given url doesn't exist in database" do
-#   	  new_url = "www.new_url.com"
-# 	  url = Url.new(:url => new_url)
-# 	  url.sanitize
-# 	  expect(url.url_exist?).to eq(false)
-#   	end
-#   end
+  	# it "return false if given url doesn't exist in database" do
+  	#   new_url = "www.new_url.com"
+	  # url = Url.new(:url => new_url)
+	  # url.sanitize
+	  # expect(url.url_exist?).to eq(false)
+  	# end
+  end
 
 #   it "generate 6 chracter slug for given url" do
 #   	url = Url.create(:url => @url)
