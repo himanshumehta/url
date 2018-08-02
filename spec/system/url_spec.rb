@@ -17,4 +17,13 @@ RSpec.describe "Shorten url", :type => :system do
     }.to change(Url, :count).by(1)
     expect(page).to have_content("Url was successfully shortened.")
   end
+
+  # System test to visit homepage and post input url and create a record.
+  it "if nil input provided than don't create slug" do
+    visit '/'
+    fill_in "Url", :with => ""
+    expect{
+      click_button 'Go'
+    }.to_not change(Url, :count)
+  end
 end
