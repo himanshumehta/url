@@ -10,6 +10,14 @@ class Url < ApplicationRecord
 	end
 
 	def url_exist
-	   if Url.find_by_sanitize_url(self.sanitize_url) then true else false end
+	   if Url.find_by_sanitize_url(self.sanitize_url) 
+	   	then true 
+	   	else false 
+	   end
 	end
+
+	def generate_slug
+		chars = ['0'..'9','A'..'Z','a'..'z'].map{|range| range.to_a}.flatten
+    	self.slug = 6.times.map{chars.sample}.join until Url.find_by_slug(self.slug).nil?	
+    end
 end

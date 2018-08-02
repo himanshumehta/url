@@ -38,11 +38,11 @@ RSpec.describe Url, type: :model do
   	end
   end
 
-#   it "generate 6 chracter slug for given url" do
-#   	url = Url.create(:url => @url)
-#     url.generate_slug
-#     expect(url.slug).to match(/\A[a-z\d]{6}\z/i)
-#   end
+  it "generate 6 chracter slug for given url" do
+  	url = Url.create(:url => @url)
+    url.generate_slug
+    expect(url.slug).to match(/\A[a-z\d]{6}\z/i)
+  end
 
 #   describe "allow only unique slug." do
 # 	before do
