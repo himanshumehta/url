@@ -9,7 +9,7 @@ RSpec.describe Url, type: :model do
   it "check for nil input" do
   	url_blank = Url.create(:url => "")
     url_blank.valid?
-    expect(url.errors[:original_url]).to include("Please provide a Url")
+    expect(url_blank.errors[:url]).to include("Please provide a Url")
   end
 
 # These urls are same so save sanitized url first time and check for uniqueness
@@ -48,10 +48,10 @@ RSpec.describe Url, type: :model do
   describe "allow only unique slug." do
 	before do
 	  url = Url.create(:url => @url)
-	  record_with_same_slug = url.dup
-	  record_with_same_slug.save
+	  same_slug_url = url.dup
+	  same_slug_url.save
 	end
-	expect(url).to_not be_valid    
+	expect(same_slug_url).to_not be_valid    
   end  
 
   it "update http_status for given url" do 
