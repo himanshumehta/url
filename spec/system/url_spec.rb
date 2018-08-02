@@ -8,16 +8,13 @@ RSpec.describe "Shorten url", :type => :system do
 	@url = "#{random_word}.com/"
   end
   
-  # System test to visit homepage and post input url and get return slug.
+  # System test to visit homepage and post input url and create a record.
   it "enables me to input url and create shorten url" do
     visit '/'
-
-    fill_in "url", :with => @url
-    # click_button "Shorten"
-
-    # expect{
-    #   click_button 'Shorten'
-    # }.to change(Link, :count).by(1)
-    # expect(page).to have_content("URL was successfully shortened.")
+    fill_in "Url", :with => @url
+    expect{
+      click_button 'Go'
+    }.to change(Url, :count).by(1)
+    expect(page).to have_content("Url was successfully shortened.")
   end
 end

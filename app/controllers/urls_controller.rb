@@ -28,7 +28,7 @@ class UrlsController < ApplicationController
 
     respond_to do |format|
       if @url.save
-        format.html { redirect_to @url, notice: 'Url was successfully created.' }
+        format.html { redirect_to @url, notice: 'Url was successfully shortened.' }
         format.json { render :show, status: :created, location: @url }
       else
         format.html { render :new }
@@ -69,6 +69,7 @@ class UrlsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def url_params
-      params.require(:url).permit(:url, :slug, :clicks, :sanitize_url, :http_status)
+      # params.require(:url).permit(:url, :slug, :clicks, :sanitize_url, :http_status)
+      params.require(:url).permit(:url)
     end
 end
