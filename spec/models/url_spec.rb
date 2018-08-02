@@ -61,8 +61,8 @@ RSpec.describe Url, type: :model do
 
   it "on record creation, presence of all columns values" do
 	  url = Url.create(:url => @url)
-      url.generate_slug
-      url.sanitize
+    url.generate_slug
+    url.sanitize
 	  expect(url).to be_valid
 	  expect(url.slug).to be_present    
 	  expect(url.sanitize_url).to be_present
