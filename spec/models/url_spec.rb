@@ -59,11 +59,14 @@ RSpec.describe Url, type: :model do
 #   	# write code
 #   end
 
-#   it "create record with all columns values" do
-#     expect(url).to be_valid
-# 	expect(url.slug).to exist    
-# 	expect(url.sanitize_url).to exist
-# 	expect(url.http_status).to exist    
-# 	expect(url.clicks).to exist    
-#   end
+  it "on record creation, presence of all columns values" do
+	  url = Url.create(:url => @url)
+      url.generate_slug
+      url.sanitize
+	  expect(url).to be_valid
+	  expect(url.slug).to be_present    
+	  expect(url.sanitize_url).to be_present
+	  expect(url.http_status).to be_present    
+	  expect(url.clicks).to be_present    
+  end
 end

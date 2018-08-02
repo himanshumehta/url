@@ -2,6 +2,7 @@ class Url < ApplicationRecord
 	self.table_name = "urls"
 	validates :url, :http_status, :presence => true
 	validates :slug, uniqueness: true
+	before_save :generate_slug
 
 	def sanitize
 		self.url.strip!
