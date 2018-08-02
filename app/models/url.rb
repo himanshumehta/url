@@ -2,7 +2,7 @@ class Url < ApplicationRecord
 	self.table_name = "urls"
 	validates :url, :http_status, :presence => true
 	validates :slug, uniqueness: true
-	before_save :generate_slug
+	before_create :generate_slug
 
 	def sanitize
 		self.url.strip!
@@ -20,6 +20,7 @@ class Url < ApplicationRecord
 
 	def generate_slug
 		chars = ['0'..'9','A'..'Z','a'..'z'].map{|range| range.to_a}.flatten
+		self.slug = 6.times.map{chars.sample}.join
     	self.slug = 6.times.map{chars.sample}.join until Url.find_by_slug(self.slug).nil?	
     end
 end

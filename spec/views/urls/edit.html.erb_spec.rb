@@ -18,13 +18,13 @@ RSpec.describe "urls/edit", type: :view do
 
       assert_select "input[name=?]", "url[url]"
 
-      assert_select "input[name=?]", "url[slug]"
+      # assert_select "input[name=?]", "url[slug]"
 
-      assert_select "input[name=?]", "url[clicks]"
+      # assert_select "input[name=?]", "url[clicks]"
 
-      assert_select "input[name=?]", "url[sanitize_url]"
+      # assert_select "input[name=?]", "url[sanitize_url]"
 
-      assert_select "input[name=?]", "url[http_status]"
+      # assert_select "input[name=?]", "url[http_status]"
     end
   end
 end
