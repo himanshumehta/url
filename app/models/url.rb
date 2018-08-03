@@ -15,6 +15,7 @@ class Url < ApplicationRecord
 	   if Url.find_by_sanitize_url(self.sanitize_url) 
 	   	then true 
 	   	else false 
+	   		throw(:abort)
 	   end
 	end
 

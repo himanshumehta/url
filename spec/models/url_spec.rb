@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Url, type: :model do  
   before(:each) do
     random_word = `shuf -n 1 /usr/share/dict/words`.chomp
-	@url = "#{random_word}.com/"
+	  @url = "#{random_word}.com/"
   end
 
 # checking this in system spec
@@ -50,8 +50,9 @@ RSpec.describe Url, type: :model do
 	  @same_slug_url = url.dup
 	  @same_slug_url.save
 	end
-	it "allow only unique slug" do
-		expect(@same_slug_url).to_not be_valid    
+	  it "allow only unique slug" do
+      # fix this test
+		  expect(@same_slug_url).to_not be_valid    
   	end  
   end
 
