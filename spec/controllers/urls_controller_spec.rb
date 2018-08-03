@@ -144,4 +144,10 @@ RSpec.describe UrlsController, type: :controller do
     end
   end
 
+  describe "stats endpoint test" do
+    it "shows stats around a shortened url" do
+      # pending
+    end
+  end
+
 end

@@ -64,9 +64,13 @@ class UrlsController < ApplicationController
 
   def bypass
       @url = Url.find_by_slug!(params[:slug])
-      @url.clicks += 1
-      @url.save
+      @url.increment!(:clicks)
       redirect_to @url.sanitize_url, :status => @url.http_status
+  end
+
+  def stats
+    @url = Url.find_by_slug!(params[:slug])
+    render json: @url
   end
 
   private
