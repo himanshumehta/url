@@ -26,4 +26,16 @@ RSpec.describe "Shorten url", :type => :system do
       click_button 'Go'
     }.to_not change(Url, :count)
   end
+
+  describe "redirects to original url" do
+    before do
+      @url = "google.com/"
+    end
+    it "it redirect user to original url" do
+      # fix test for redirect
+      # url = Url.create(:url => @url)
+      # visit '/'+url.slug
+      # expect(current_path).to eql(url.sanitize_url)
+    end
+  end
 end

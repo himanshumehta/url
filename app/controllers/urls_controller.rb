@@ -10,6 +10,7 @@ class UrlsController < ApplicationController
   # GET /urls/1
   # GET /urls/1.json
   def show
+    # binding.pry
   end
 
   # GET /urls/new
@@ -59,6 +60,11 @@ class UrlsController < ApplicationController
       format.html { redirect_to urls_url, notice: 'Url was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def bypass
+      @url = Url.find_by_slug!(params[:slug])
+      redirect_to @url.sanitize_url, :status => @url.http_status
   end
 
   private
