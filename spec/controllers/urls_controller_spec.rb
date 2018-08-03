@@ -138,4 +138,10 @@ RSpec.describe UrlsController, type: :controller do
     end
   end
 
+  describe "increment clicks column if url clicked" do
+    it "incremnet clicks" do
+      # pending
+    end
+  end
+
 end
