@@ -25,16 +25,16 @@ RSpec.describe Url, type: :model do
 
   	it "return true if given url already exist" do
       alternative_url = "www.#{@url}"
-	  url = Url.new(:url => alternative_url)
-	  url.sanitize
-	  expect(url.url_exist).to eq(true)
+	    url = Url.new(:url => alternative_url)
+	    url.sanitize
+	    expect(url.url_exist).to eq(true)
   	end
 
   	it "return false if given url doesn't exist in database" do
   	  new_url = "www.new_url.com"
-	  url = Url.new(:url => new_url)
-	  url.sanitize
-	  expect(url.url_exist).to eq(false)
+  	  url = Url.new(:url => new_url)
+  	  url.sanitize
+  	  expect(url.url_exist).to eq(false)
   	end
   end
 

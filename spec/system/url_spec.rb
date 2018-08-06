@@ -5,7 +5,7 @@ RSpec.describe "Shorten url", :type => :system do
   # For generating a valid link
   before(:each) do
     random_word = `shuf -n 1 /usr/share/dict/words`.chomp
-	@url = "#{random_word}.com/"
+	  @url = "#{random_word}.com/"
   end
   
   # System test to visit homepage and post input url and create a record.
@@ -18,7 +18,7 @@ RSpec.describe "Shorten url", :type => :system do
     expect(page).to have_content("Url was successfully shortened.")
   end
 
-  # System test to visit homepage and post input url and create a record.
+  # System test to visit homepage and fill nil input and post. 
   it "if nil input provided than don't create slug" do
     visit '/'
     fill_in "Url", :with => ""
