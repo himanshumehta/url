@@ -150,4 +150,32 @@ RSpec.describe UrlsController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    before do
+      get :stats, params: { slug: url.slug }  
+    end
+
+    let(:url) { Url.create(url: 'www.google.com') }
+
+    it "returns http success" do
+      expect(response).to have_http_status(:success)
+    end
+
+    it "response with JSON body containing expected Url attributes" do
+      hash_body = nil
+      expect { hash_body = JSON.parse(response.body).with_indifferent_access }.not_to raise_exception
+      expect(hash_body.keys).to match_array(["clicks", "created_at", "http_status", "id", "sanitize_url", "slug", "updated_at", "url"])
+      expect(hash_body).to match({
+        clicks: url.clicks,
+        id: url.id,
+        created_at: url.created_at,
+        http_status: url.http_status,
+        sanitize_url: url.sanitize_url,
+        slug: url.slug,
+        updated_at: url.updated_at,
+        url: url.url
+      })  
+    end
+  end
+
 end
